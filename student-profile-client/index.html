@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/models/student.js"></script>
+  <script src="js/collections/student_collection.js"></script>
+  <script src="js/routes/router.js"></script>
+  <script src="js/views/shell_view.js"></script>
+  <script src="js/views/student_list_view.js"></script>
+  <script src="js/views/student_list_item_view.js"></script>
+    <script id="shell-template" type="text/x-underscore-template">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#">Employee Directory</a>
+
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="home-menu active"><a href="#">Home</a></li>
+                        <li class="contact-menu"><a href="#contact">Contact</a></li>
+                    </ul>
+                    <form class="navbar-search pull-right dropdown">
+                        <input id="searchText" type="search" class="search-query dropdown-toggle" placeholder="Search" autocomplete="off">
+                    </form>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+      <br/>
+
+      <div class="row-fluid">
+          <div class="span12" id="content"></div>
+      </div>
+
+      <hr>
+
+      <footer>
+          <p>&copy; Christophe Coenraets 2013. <a href="http://twitter.com/ccoenraets">Follow me</a> on Twitter.</p>
+      </footer>
+    </div>
+  </script>
+
+  <script id="student-list-item-view" type="text/x-underscore-template">
+    <a href='#employees/<%= id %>'>
+      <img width="50" height="50" src="pics/<%=name %>50.jpg" style="float:left;margin-right: 10px;"/>
+      <p class="list-item"><%= name %><br /><%= twitter %></p>
+    </a>
+  </script>
+</head>
+<body>
+
+</body>
+
+</html>
