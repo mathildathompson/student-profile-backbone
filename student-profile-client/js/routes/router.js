@@ -1,7 +1,7 @@
 directory.Router = Backbone.Router.extend({
   routes: {
     "": "home",
-    "student/id": "studentDetails" 
+    "students/:id": "studentDetails" 
   },
   initialize: function(){
     directory.shellView = new directory.ShellView();
@@ -15,5 +15,15 @@ directory.Router = Backbone.Router.extend({
   home: function(){
     directory.homelView = new directory.HomeView();
     this.content.html(directory.homelView.render().el);
+  },
+  studentDetails: function(id){
+    var student = new directory.Student({id: id});
+    var self = this;
+    student.fetch({
+      success: function(data){
+        // debugger;
+        self.content.html(new directory.StudentView({model: data}).render().el);
+      }
+    });
   }
 })
