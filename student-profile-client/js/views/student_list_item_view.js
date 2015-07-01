@@ -4,7 +4,7 @@ directory.StudentListItemView = Backbone.View.extend({
     this.template = _.template($('#student-list-item-view').html());
   },
   render: function(){
-    this.$el.html(this.template(this.model));
+    this.$el.html(this.template(this.model.toJSON()));
     return this;
   }
 })
