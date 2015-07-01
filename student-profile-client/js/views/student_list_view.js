@@ -2,7 +2,9 @@ directory.StudentListView = Backbone.View.extend({
   tagName: 'ul',
   className: 'nav nav-list',
   initialize: function(){
-
+    var self = this;
+    this.collection.on('reset', this.render, this);
+    // this.model.on('')
   },
   render: function(){
     this.$el.empty();
