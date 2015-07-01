@@ -13,6 +13,7 @@ directory.Router = Backbone.Router.extend({
     this.content = $('#content');
   },
   home: function(){
-    //render the home page
+    directory.homelView = new directory.HomeView();
+    this.content.html(directory.homelView.render().el);
   }
 })
