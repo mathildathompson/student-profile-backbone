@@ -15,15 +15,16 @@ directory.Router = Backbone.Router.extend({
   home: function(){
     directory.homelView = new directory.HomeView();
     this.content.html(directory.homelView.render().el);
+    directory.shellView.selectMenuItem('home-menu');
   },
   studentDetails: function(id){
     var student = new directory.Student({id: id});
     var self = this;
     student.fetch({
       success: function(data){
-        // debugger;
         self.content.html(new directory.StudentView({model: data}).render().el);
       }
     });
+    directory.shellView.selectMenuItem();
   }
 })

@@ -1,8 +1,4 @@
-var directory = {
-  views: {},
-  models: {},
-  collections:{}
-};
+var directory = {};
 
 $(document).ready(function(){
   //Creating a new router instance

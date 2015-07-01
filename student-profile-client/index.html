@@ -61,7 +61,7 @@
 
   <script id="student-list-item-view" type="text/x-underscore-template">
     <a href='#students/<%= id %>'>
-      <img width="50" height="50" src="pics/<%=name %>50.jpg" style="float:left;margin-right: 10px;"/>
+      <img width="50" height="50" src="pics/<%= name.split(' ').join('_') %>50.jpg" style="float:left;margin-right: 10px;"/>
       <p class="list-item"><%= name %><br /><%= twitter %></p>
     </a>
   </script>

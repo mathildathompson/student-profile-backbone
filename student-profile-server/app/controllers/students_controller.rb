@@ -4,7 +4,11 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    if params[:name]
+      @students =Student.where("name like ?", "%#{params[:name]}%")
+    else
+      @students = Student.all
+    end
 
     render json: @students
   end

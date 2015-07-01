@@ -9,7 +9,8 @@ directory.ShellView = Backbone.View.extend({
     this.searchResults = new directory.StudentCollection();
     //Adding a search ResultsView into the shell view
     this.searchResultsView = new directory.StudentListView({collection: this.searchResults, className: 'dropdown-menu'});
-    this.searchResults.on('change', this.render(), this);
+    //When the collection changes render the shell view, we are not really using this;
+    // this.searchResults.on('change', this.render(), this);
   },
   render: function(){
     console.log('render called')
@@ -22,13 +23,21 @@ directory.ShellView = Backbone.View.extend({
     var _this = this;
     this.searchResults.fetch({
       reset: true,
-      data: {name: key}
+      data: {name: key},
+      success: function(){
+        $('.dropdown').addClass('open');
+      }
     });
-    setTimeout(function(){
-      $('.dropdown').addClass('open');
-    })
+    
   },
   onkeypress: function(event){
     console.log(event);
+  },
+  selectMenuItem: function(menuItem){
+    console.log(menuItem, 'select menuItem');
+    $('.navbar .nav li').removeClass('active');
+    if(menuItem){
+      $('.' + menuItem).addClass('active');
+    }
   }
 })
